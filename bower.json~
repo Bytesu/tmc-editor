@@ -4,6 +4,10 @@
   "authors": [
     "byte_su@163.com <byte_su@163.com>"
   ],
+"main": [
+    "./dist/summernote.js",
+    "./dist/summernote.css"
+  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
