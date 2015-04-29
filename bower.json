@@ -1,0 +1,21 @@
+{
+  "name": "tmc-editor",
+  "version": "0.0.0",
+  "authors": [
+    "byte_su@163.com <byte_su@163.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+ "dependencies": {
+    "jquery": ">= 1.9.0",
+    "bootstrap": ">= 3.0.1",
+    "font-awesome": ">=4.2.0"
+  },
+  "devDependencies": {}
+}
