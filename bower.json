@@ -6,6 +6,7 @@
   ],
   "main": [
     "./dist/summernote.js",
+    "./lang/summernote-zh-CN.js",
     "./dist/summernote.css"
   ],
   "license": "MIT",
