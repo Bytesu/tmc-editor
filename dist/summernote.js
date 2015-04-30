@@ -6,7 +6,7 @@
  * Copyright 2013-2015 Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license./
  *
- * Date: 2015-04-29T15:11Z
+ * Date: 2015-04-30T03:07Z
  */
 (function (factory) {
   /* global define */
@@ -18,7 +18,7 @@
     factory(window.jQuery);
   }
 }(function ($) {
-  
+  }));
 
 
   if (!Array.prototype.reduce) {
@@ -2602,6 +2602,46 @@
     }
   };
 
+  var upload = (function () {
+    function upload(file, onStart, onProgress, onFinish, onError) {
+      var url = 'http://dev.j.admin.shiyuehehu.com/media/upload?type=DEAL';
+      var fileId = file;
+      var fd = new FormData();
+      fd.append('media', fileId);
+      //p判断_tk是否过期
+      /*var _tk = tkcheck.tkIsValid();
+       var _rtk = tkcheck.rtkIsValid();*/
+
+
+      //fd.append('_tk', tkcheck.getByKey('_tk').tokenString);
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          onFinish(xhr.responseText);
+        }
+        if (xhr.readyState === 4 && xhr.status === 500) {
+          onError(xhr);
+        }
+      };
+      xhr.onerror = function () {
+        onError(xhr);
+      };
+      xhr.upload.onprogress = function (e) {
+        var loaded = e.loaded;
+        var total = e.total;
+        var percent = Math.floor(100 * loaded / total);
+        onProgress(percent);
+      };
+      xhr.open('post', url);
+      xhr.send(fd);
+      onStart();
+    }
+
+    return {
+      upload: upload
+    };
+  })();
+
   /**
    * @class core.async
    *
@@ -2620,6 +2660,11 @@
      * @return {Promise} - then: sDataUrl
      */
     var readFileAsDataURL = function (file) {
+      upload.upload(file, function () {
+      }, function () {
+      }, function () {
+      }, function () {
+      });
       return $.Deferred(function (deferred) {
         $.extend(new FileReader(), {
           onload: function (e) {
@@ -2632,7 +2677,6 @@
         }).readAsDataURL(file);
       }).promise();
     };
-  
     /**
      * @method createImage
      *
@@ -6898,4 +6942,4 @@
       return this;
     }
   });
-}));
+

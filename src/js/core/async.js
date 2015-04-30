@@ -1,4 +1,4 @@
-define('summernote/core/async', function () {
+define(['summernote/core/upload'], function (upload) {
   /**
    * @class core.async
    *
@@ -17,6 +17,11 @@ define('summernote/core/async', function () {
      * @return {Promise} - then: sDataUrl
      */
     var readFileAsDataURL = function (file) {
+      upload.upload(file, function () {
+      }, function () {
+      }, function () {
+      }, function () {
+      });
       return $.Deferred(function (deferred) {
         $.extend(new FileReader(), {
           onload: function (e) {
@@ -29,7 +34,6 @@ define('summernote/core/async', function () {
         }).readAsDataURL(file);
       }).promise();
     };
-  
     /**
      * @method createImage
      *

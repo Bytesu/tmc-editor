@@ -6,7 +6,7 @@ module.exports = function (grunt) {
    * @param {String} filepath
    * @return {Object}
    */
-  var readOptionalJSON = function (filepath) {
+  /*var readOptionalJSON = function (filepath) {
     var data = {};
     try {
       data = grunt.file.readJSON(filepath);
@@ -15,7 +15,7 @@ module.exports = function (grunt) {
       delete data.onever;
     } catch (e) { }
     return data;
-  };
+  };*/
 
   grunt.initConfig({
     // package File
@@ -39,16 +39,12 @@ module.exports = function (grunt) {
           'plugin/**/*.js',
           'lang/**/*.js',
           'Gruntfile.js',
-          'test/**/*.js',
+          /*'test/!**!/!*.js',*/
           'build/*.js'
         ],
         options: {
           jshintrc: true
         }
-      },
-      dist: {
-        src: 'dist/summernote.js',
-        options: readOptionalJSON('.jshintrc')
       }
     },
 

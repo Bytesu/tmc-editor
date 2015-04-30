@@ -18,4 +18,4 @@
     factory(window.jQuery);
   }
 }(function ($) {
-  'use strict';
+  'use strict';}));
