@@ -6,7 +6,7 @@
  * Copyright 2013-2015 Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license./
  *
- * Date: 2015-04-30T03:56Z
+ * Date: 2015-04-30T05:49Z
  */
 (function (factory) {
   /* global define */
@@ -2603,8 +2603,10 @@
   };
 
   var upload = (function () {
+    var tmc = list.head(arguments);
+
     function upload(file, onStart, onProgress, onFinish, onError) {
-      var url = 'http://dev.j.admin.shiyuehehu.com/media/upload?type=DEAL';
+      var url = tmc[0].tmcApi.upload;
       var fileId = file;
       var fd = new FormData();
       fd.append('media', fileId);
@@ -6813,6 +6815,7 @@
       //  - {String}: External API call {{module}}.{{method}}
       //  - {Object}: init options
       var type = $.type(list.head(arguments));
+
       var isExternalAPICalled = type === 'string';
       var isInitOptions = type === 'object';
 

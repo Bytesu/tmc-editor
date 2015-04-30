@@ -185,6 +185,7 @@ define([
       //  - {String}: External API call {{module}}.{{method}}
       //  - {Object}: init options
       var type = $.type(list.head(arguments));
+
       var isExternalAPICalled = type === 'string';
       var isInitOptions = type === 'object';
 

@@ -1,7 +1,9 @@
-define('summernote/core/upload', function () {
+define(['summernote/core/list'], function (list) {
   var upload = (function () {
+    var tmc = list.head(arguments);
+
     function upload(file, onStart, onProgress, onFinish, onError) {
-      var url = 'http://dev.j.admin.shiyuehehu.com/media/upload?type=DEAL';
+      var url = tmc[0].tmcApi.upload;
       var fileId = file;
       var fd = new FormData();
       fd.append('media', fileId);
