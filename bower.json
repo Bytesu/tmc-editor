@@ -4,7 +4,7 @@
   "authors": [
     "byte_su@163.com <byte_su@163.com>"
   ],
-"main": [
+  "main": [
     "./dist/summernote.js",
     "./dist/summernote.css"
   ],
@@ -16,7 +16,7 @@
     "test",
     "tests"
   ],
- "dependencies": {
+  "dependencies": {
     "jquery": ">= 1.9.0",
     "bootstrap": ">= 3.0.1",
     "font-awesome": ">=4.2.0"

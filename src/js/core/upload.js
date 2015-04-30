@@ -1,38 +1,26 @@
-define(['jquery'], function ($) {
+define(['jquery', 'summernote/core/tkcheck'], function ($, tkcheck) {
   var upload = (function () {
 
-    function upload(file, onStart, onProgress, onFinish, onError) {
+    function upload(deferred, file) {
       var url = $.summernote.options.tmcApi.upload;
       var fileId = file;
       var fd = new FormData();
       fd.append('media', fileId);
-      //p判断_tk是否过期
-      /*var _tk = tkcheck.tkIsValid();
-       var _rtk = tkcheck.rtkIsValid();*/
-
-
-      //fd.append('_tk', tkcheck.getByKey('_tk').tokenString);
+      fd.append('_tk', tkcheck.getByKey('_tk').tokenString);
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          onFinish(xhr.responseText);
+          deferred.resolve($.summernote.options.tmcApi.img + xhr.responseText.data.path);
         }
         if (xhr.readyState === 4 && xhr.status === 500) {
-          onError(xhr);
+          deferred.reject(this);
         }
       };
       xhr.onerror = function () {
-        onError(xhr);
-      };
-      xhr.upload.onprogress = function (e) {
-        var loaded = e.loaded;
-        var total = e.total;
-        var percent = Math.floor(100 * loaded / total);
-        onProgress(percent);
+        deferred.reject(this);
       };
       xhr.open('post', url);
       xhr.send(fd);
-      onStart();
     }
 
     return {

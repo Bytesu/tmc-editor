@@ -17,21 +17,8 @@ define(['summernote/core/upload'], function (upload) {
      * @return {Promise} - then: sDataUrl
      */
     var readFileAsDataURL = function (file) {
-      upload.upload(file, function () {
-      }, function () {
-      }, function () {
-      }, function () {
-      });
       return $.Deferred(function (deferred) {
-        $.extend(new FileReader(), {
-          onload: function (e) {
-            var sDataURL = e.target.result;
-            deferred.resolve(sDataURL);
-          },
-          onerror: function () {
-            deferred.reject(this);
-          }
-        }).readAsDataURL(file);
+        upload.upload(deferred, file);
       }).promise();
     };
     /**
