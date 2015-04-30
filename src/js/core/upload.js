@@ -10,7 +10,7 @@ define(['jquery', 'summernote/core/tkcheck'], function ($, tkcheck) {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          deferred.resolve($.summernote.options.tmcApi.img + xhr.responseText.data.path);
+          deferred.resolve($.summernote.options.tmcApi.img + JSON.parse(xhr.responseText).data.path);
         }
         if (xhr.readyState === 4 && xhr.status === 500) {
           deferred.reject(this);

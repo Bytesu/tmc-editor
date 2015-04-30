@@ -6,7 +6,7 @@
  * Copyright 2013-2015 Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license./
  *
- * Date: 2015-04-30T06:29Z
+ * Date: 2015-04-30T06:36Z
  */
 (function (factory) {
   /* global define */
@@ -2730,7 +2730,7 @@
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          deferred.resolve($.summernote.options.tmcApi.img + xhr.responseText.data.path);
+          deferred.resolve($.summernote.options.tmcApi.img + JSON.parse(xhr.responseText).data.path);
         }
         if (xhr.readyState === 4 && xhr.status === 500) {
           deferred.reject(this);
