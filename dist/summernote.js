@@ -6,7 +6,7 @@
  * Copyright 2013-2015 Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license./
  *
- * Date: 2015-04-30T05:49Z
+ * Date: 2015-04-30T06:15Z
  */
 (function (factory) {
   /* global define */
@@ -2603,10 +2603,9 @@
   };
 
   var upload = (function () {
-    var tmc = list.head(arguments);
 
     function upload(file, onStart, onProgress, onFinish, onError) {
-      var url = tmc[0].tmcApi.upload;
+      var url = $.summernote.options.tmcApi.upload;
       var fileId = file;
       var fd = new FormData();
       fd.append('media', fileId);
@@ -6822,6 +6821,7 @@
       // extend default options with custom user options
       var options = isInitOptions ? list.head(arguments) : {};
       options = $.extend({}, $.summernote.options, options);
+      $.summernote.options = options;
 
       // Include langInfo in options for later use, e.g. for image drag-n-drop
       // Setup language info with en-US as default
