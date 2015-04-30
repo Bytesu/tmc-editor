@@ -1,7 +1,7 @@
 define('summernote/defaults', function () {
   /**
-   * @class defaults 
-   * 
+   * @class defaults
+   *
    * @singleton
    */
   var defaults = {
@@ -9,16 +9,16 @@ define('summernote/defaults', function () {
     version: '@VERSION',
 
     /**
-     * 
+     *
      * for event options, reference to EventHandler.attach
-     * 
-     * @property {Object} options 
-     * @property {String/Number} [options.width=null] set editor width 
+     *
+     * @property {Object} options
+     * @property {String/Number} [options.width=null] set editor width
      * @property {String/Number} [options.height=null] set editor height, ex) 300
      * @property {String/Number} options.minHeight set minimum height of editor
      * @property {String/Number} options.maxHeight
-     * @property {String/Number} options.focus 
-     * @property {Number} options.tabsize 
+     * @property {String/Number} options.focus
+     * @property {Number} options.tabsize
      * @property {Boolean} options.styleWithSpan
      * @property {Object} options.codemirror
      * @property {Object} [options.codemirror.mode='text/html']
@@ -62,7 +62,7 @@ define('summernote/defaults', function () {
       },
 
       // language
-      lang: 'en-US',                // language 'en-US', 'ko-KR', ...
+      lang: 'zh-CN',                // language 'en-US', 'ko-KR', ...
       direction: null,              // text direction, ex) 'rtl'
 
       // toolbar
@@ -162,7 +162,7 @@ define('summernote/defaults', function () {
        */
       onCreateLink: function (sLinkUrl) {
         if (sLinkUrl.indexOf('@') !== -1 && sLinkUrl.indexOf(':') === -1) {
-          sLinkUrl =  'mailto:' + sLinkUrl;
+          sLinkUrl = 'mailto:' + sLinkUrl;
         } else if (sLinkUrl.indexOf('://') === -1) {
           sLinkUrl = 'http://' + sLinkUrl;
         }
@@ -235,107 +235,96 @@ define('summernote/defaults', function () {
 
     // default language: en-US
     lang: {
-      'en-US': {
+      'zh-CN': {
         font: {
-          bold: 'Bold',
-          italic: 'Italic',
-          underline: 'Underline',
-          clear: 'Remove Font Style',
-          height: 'Line Height',
-          name: 'Font Family',
-          strikethrough: 'Strikethrough',
-          subscript: 'Subscript',
-          superscript: 'Superscript',
-          size: 'Font Size'
+          bold: '粗体',
+          italic: '斜体',
+          underline: '下划线',
+          clear: '清除格式',
+          height: '行高',
+          name: '字体',
+          strikethrough: '删除线',
+          size: '字号'
         },
         image: {
-          image: 'Picture',
-          insert: 'Insert Image',
-          resizeFull: 'Resize Full',
-          resizeHalf: 'Resize Half',
-          resizeQuarter: 'Resize Quarter',
-          floatLeft: 'Float Left',
-          floatRight: 'Float Right',
-          floatNone: 'Float None',
-          shapeRounded: 'Shape: Rounded',
-          shapeCircle: 'Shape: Circle',
-          shapeThumbnail: 'Shape: Thumbnail',
-          shapeNone: 'Shape: None',
-          dragImageHere: 'Drag image or text here',
-          dropImage: 'Drop image or Text',
-          selectFromFiles: 'Select from files',
-          maximumFileSize: 'Maximum file size',
-          maximumFileSizeError: 'Maximum file size exceeded.',
-          url: 'Image URL',
-          remove: 'Remove Image'
+          image: '图片',
+          insert: '插入图片',
+          resizeFull: '调整至 100%',
+          resizeHalf: '调整至 50%',
+          resizeQuarter: '调整至 25%',
+          floatLeft: '左浮动',
+          floatRight: '右浮动',
+          floatNone: '不浮动',
+          dragImageHere: '将图片拖至此处',
+          selectFromFiles: '从本地上传',
+          url: '图片地址'
         },
         link: {
-          link: 'Link',
-          insert: 'Insert Link',
-          unlink: 'Unlink',
-          edit: 'Edit',
-          textToDisplay: 'Text to display',
-          url: 'To what URL should this link go?',
-          openInNewWindow: 'Open in new window'
+          link: '链接',
+          insert: '插入链接',
+          unlink: '去除链接',
+          edit: '编辑链接',
+          textToDisplay: '显示文本',
+          url: '链接地址',
+          openInNewWindow: '在新窗口打开'
         },
         table: {
-          table: 'Table'
+          table: '表格'
         },
         hr: {
-          insert: 'Insert Horizontal Rule'
+          insert: '水平线'
         },
         style: {
-          style: 'Style',
-          normal: 'Normal',
-          blockquote: 'Quote',
-          pre: 'Code',
-          h1: 'Header 1',
-          h2: 'Header 2',
-          h3: 'Header 3',
-          h4: 'Header 4',
-          h5: 'Header 5',
-          h6: 'Header 6'
+          style: '样式',
+          normal: '普通',
+          blockquote: '引用',
+          pre: '代码',
+          h1: '标题 1',
+          h2: '标题 2',
+          h3: '标题 3',
+          h4: '标题 4',
+          h5: '标题 5',
+          h6: '标题 6'
         },
         lists: {
-          unordered: 'Unordered list',
-          ordered: 'Ordered list'
+          unordered: '无序列表',
+          ordered: '有序列表'
         },
         options: {
-          help: 'Help',
-          fullscreen: 'Full Screen',
-          codeview: 'Code View'
+          help: '帮助',
+          fullscreen: '全屏',
+          codeview: '源代码'
         },
         paragraph: {
-          paragraph: 'Paragraph',
-          outdent: 'Outdent',
-          indent: 'Indent',
-          left: 'Align left',
-          center: 'Align center',
-          right: 'Align right',
-          justify: 'Justify full'
+          paragraph: '段落',
+          outdent: '减少缩进',
+          indent: '增加缩进',
+          left: '左对齐',
+          center: '居中对齐',
+          right: '右对齐',
+          justify: '两端对齐'
         },
         color: {
-          recent: 'Recent Color',
-          more: 'More Color',
-          background: 'Background Color',
-          foreground: 'Foreground Color',
-          transparent: 'Transparent',
-          setTransparent: 'Set transparent',
-          reset: 'Reset',
-          resetToDefault: 'Reset to default'
+          recent: '最近使用',
+          more: '更多',
+          background: '背景',
+          foreground: '前景',
+          transparent: '透明',
+          setTransparent: '透明',
+          reset: '重置',
+          resetToDefault: '默认'
         },
         shortcut: {
-          shortcuts: 'Keyboard shortcuts',
-          close: 'Close',
-          textFormatting: 'Text formatting',
-          action: 'Action',
-          paragraphFormatting: 'Paragraph formatting',
-          documentStyle: 'Document Style',
-          extraKeys: 'Extra keys'
+          shortcuts: '快捷键',
+          close: '关闭',
+          textFormatting: '文本格式',
+          action: '动作',
+          paragraphFormatting: '段落格式',
+          documentStyle: '文档样式'
         },
         history: {
-          undo: 'Undo',
-          redo: 'Redo'
+          undo: '撤销',
+          redo: '重做'
         }
       }
     }
